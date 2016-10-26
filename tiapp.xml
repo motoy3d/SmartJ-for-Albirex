@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <!-- Android用 -->
-    <id>everyday.albirex</id>
+    <id>smartj.albirex</id>
     <!-- iPhone用 -->
     <!--    <id>smartj.albirex</id> -->
     <name>SmartJ for Albirex</name>
-    <version>1.0.0</version>
+    <version>1.1.1</version>
     <publisher>Motoi Kataoka</publisher>
     <url>http://motoy3d.blogspot.com</url>
     <description>アルビレックス新潟アプリ！</description>
-    <copyright>2014 by Motoi Kataoka</copyright>
+    <copyright>2016 by Motoi Kataoka</copyright>
     <icon>appicon.png</icon>
     <navbar-hidden>true</navbar-hidden>
     <analytics>false</analytics>
-    <guid>a9fd13fd-ebf0-4116-8947-d7959ac973d1</guid>
+    <guid>79fdf9e1-9952-4703-9777-76b64d774c01</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
-        <min-ios-ver>6.0</min-ios-ver>
+        <min-ios-ver>8.0</min-ios-ver>
         <plist>
             <dict>
                 <key>UISupportedInterfaceOrientations~iphone</key>
@@ -48,8 +48,29 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:installLocation="auto" android:versionCode="3" android:versionName="1.0.2">
-            <application android:hardwareAccelerated="false" android:theme="@style/Theme.Titanium"/>
+        <manifest android:installLocation="auto" android:versionCode="4" android:versionName="1.0.3">
+            <application android:hardwareAccelerated="false" android:theme="@style/Theme.Titanium">
+                <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:label="@string/app_name"
+                    android:name=".SmartjForAlbirexActivity"
+                    android:screenOrientation="portrait" android:theme="@style/Theme.Titanium">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                </activity>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:name="org.appcelerator.titanium.TiActivity" android:screenOrientation="portrait"/>
+                <activity
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:name="org.appcelerator.titanium.TiTranslucentActivity"
+                    android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
+                <activity android:configChanges="screenSize"
+                    android:name="ti.modules.titanium.ui.android.TiPreferencesActivity" android:screenOrientation="portrait"/>
+            </application>
             <uses-sdk android:minSdkVersion="14"/>
             <supports-screens android:anyDensity="false"/>
         </manifest>
@@ -66,14 +87,15 @@
         <module platform="android">net.nend</module>
         <module platform="iphone">de.marcelpociot.social</module>
         <module platform="iphone">net.nend</module>
+        <module platform="android">com.motoy3d.android.displayinfo</module>
+        <module platform="android">com.motoy3d.check.app.android</module>
     </modules>
     <deployment-targets>
-        <target device="blackberry">false</target>
         <target device="android">true</target>
         <target device="ipad">false</target>
         <target device="iphone">true</target>
         <target device="mobileweb">false</target>
-        <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.2.3.GA</sdk-version>
+    <sdk-version>5.5.1.GA</sdk-version>
+    <property name="appc-app-id" type="string">580f63e69426529c33a1de5d</property>
 </ti:app>

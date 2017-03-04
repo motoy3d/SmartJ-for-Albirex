@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <!-- Android用 -->
-    <id>smartj.albirex</id>
+    <id>everyday.albirex</id>
     <!-- iPhone用 -->
     <!--    <id>smartj.albirex</id> -->
     <name>SmartJ for Albirex</name>
@@ -9,9 +9,10 @@
     <publisher>Motoi Kataoka</publisher>
     <url>http://motoy3d.blogspot.com</url>
     <description>アルビレックス新潟アプリ！</description>
-    <copyright>2016 by Motoi Kataoka</copyright>
+    <copyright>2017 by Motoi Kataoka</copyright>
     <icon>appicon.png</icon>
-    <navbar-hidden>true</navbar-hidden>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
     <analytics>false</analytics>
     <guid>79fdf9e1-9952-4703-9777-76b64d774c01</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
@@ -47,48 +48,13 @@
             <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
     </iphone>
-    <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:installLocation="auto" android:versionCode="4" android:versionName="1.0.3">
-            <application android:hardwareAccelerated="false" android:theme="@style/Theme.Titanium">
-                <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-                <activity
-                    android:configChanges="keyboardHidden|orientation|screenSize"
-                    android:label="@string/app_name"
-                    android:name=".SmartjForAlbirexActivity"
-                    android:screenOrientation="portrait" android:theme="@style/Theme.Titanium">
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN"/>
-                        <category android:name="android.intent.category.LAUNCHER"/>
-                    </intent-filter>
-                </activity>
-                <activity
-                    android:configChanges="keyboardHidden|orientation|screenSize"
-                    android:name="org.appcelerator.titanium.TiActivity" android:screenOrientation="portrait"/>
-                <activity
-                    android:configChanges="keyboardHidden|orientation|screenSize"
-                    android:name="org.appcelerator.titanium.TiTranslucentActivity"
-                    android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent"/>
-                <activity android:configChanges="screenSize"
-                    android:name="ti.modules.titanium.ui.android.TiPreferencesActivity" android:screenOrientation="portrait"/>
-            </application>
-            <uses-sdk android:minSdkVersion="14"/>
-            <supports-screens android:anyDensity="false"/>
-        </manifest>
-    </android>
-    <mobileweb>
-        <precache/>
-        <splash>
-            <enabled>true</enabled>
-            <inline-css-images>true</inline-css-images>
-        </splash>
-        <theme>default</theme>
-    </mobileweb>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <!-- Android設定はplatform/android/AndroidManifest.xmlで行う。
+    WRITE_EXTERNAL_STORAGEパーミッションを無効化するのがtiapp.xmlではできないため -->
     <modules>
         <module platform="android">net.nend</module>
         <module platform="iphone">de.marcelpociot.social</module>
         <module platform="iphone">net.nend</module>
-        <module platform="android">com.motoy3d.android.displayinfo</module>
-        <module platform="android">com.motoy3d.check.app.android</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
